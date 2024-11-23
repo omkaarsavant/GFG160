@@ -1,0 +1,35 @@
+int getSecondLargest(vector<int> &arr) {
+        sort(arr.begin(),arr.end(),greater<int>());
+        for(int i=0;i<arr.size()-1;i++)
+        {
+            if(arr[i]==arr[i+1])
+            {
+                continue;
+                
+            }else if(arr[i]>arr[i+1]){
+                return arr[i+1];
+            }
+        }
+        return -1;   
+    }
+0.34 secs
+AI
+-->
+int getSecondLargest(vector<int> &arr) {
+    if (arr.size() < 2) {
+        return -1; // Not enough elements for a second largest
+    }
+    
+    // Sort in descending order
+    sort(arr.begin(), arr.end(), greater<int>());
+
+    // Find the second largest element
+    for (int i = 1; i < arr.size(); i++) { // Start from the second element
+        if (arr[i] < arr[0]) { // Find the first element less than the largest
+            return arr[i];
+        }
+    }
+
+    return -1; // No distinct second largest element
+}
+0.3 secs
